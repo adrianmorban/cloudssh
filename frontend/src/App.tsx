@@ -1,11 +1,11 @@
-import { NewTab } from "./layout/newTab"
+import { RouterProvider } from '@tanstack/react-router'
+import { router } from './router'
+import './style.css'
 
 function App() {
 
     return (
-        <main className="bg-bg-primary flex justify-center items-center px-8">
-            <NewTab />
-        </main>
+        <RouterProvider router={router} />
     )
 }
 

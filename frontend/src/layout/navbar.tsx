@@ -5,6 +5,7 @@ import { SidebarLeftIcon } from '@hugeicons/core-free-icons'
 import Tab from "../components/tab";
 
 export const Navbar: React.FC = () => {
+
     return (
         <nav style={{ WebkitAppRegion: "drag" } as React.CSSProperties} className="w-full h-10 bg-bg-primary flex items-center border-border/50 border-b">
             <div style={{ WebkitAppRegion: "drag" } as React.CSSProperties} className="w-full h-full grid grid-cols-[50px_1fr_auto]">

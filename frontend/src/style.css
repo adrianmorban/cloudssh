@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 @import "tailwindcss"; 
 
 @theme {
@@ -16,4 +17,8 @@
     --color-text-secondary: #CBD5E1;    /* Slate 300 - Texto secundario */
     --color-text-muted: #64748B;        /* Slate 500 - Texto deshabilitado */
     --color-border: #334155;            /* Slate 700 - Bordes sutiles */
+}
+
+html, body, * {
+  font-family: "JetBrains Mono", monospace;
 }

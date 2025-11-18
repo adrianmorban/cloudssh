@@ -1,18 +1,9 @@
  import React from "react";
  import Searcher from "../components/searcher";
-// import { MinusIcon, SquareIcon, XIcon } from "lucide-react";
-// import { HugeiconsIcon } from "@hugeicons/react";
-// import { SidebarLeftIcon } from '@hugeicons/core-free-icons'
-// import Tab from "../components/tab";
 import { Host } from "../components/host";
 
 export const NewTab: React.FC = () => {
 
-    //         name: string;
-    // user: string;
-    // address: string;
-    // lastConnected: string;
-    // favorite?: boolean;
     const fakeHosts = [
         {
             name: "My Server",
