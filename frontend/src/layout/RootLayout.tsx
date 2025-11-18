@@ -4,16 +4,16 @@ import { Sidebar } from './Sidebar'
 
 export function RootLayout() {
   return (
-    <div className="flex h-screen w-full">
-      <Sidebar />
-
-      <div className="flex flex-col flex-1">
-        <Navbar />
-
-        <main className="flex-1 p-4">
-          <Outlet />
-        </main>
-      </div>
+    <div className="bg-bg-primary h-screen">
+      <main className="flex h-full">
+        <Sidebar />
+        <section className='w-full'>
+          <Navbar />
+          <div className='p-8'>
+            <Outlet />
+          </div>
+        </section>
+      </main>
     </div>
   )
 }

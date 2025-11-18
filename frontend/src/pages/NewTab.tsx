@@ -34,7 +34,7 @@ export const NewTab: React.FC = () => {
     ]
 
     return (
-        <div className="w-full flex flex-col items-center py-10">
+        <div className="w-full flex flex-col items-center">
             <div className="w-full h-full flex justify-center items-center">
                 <Searcher />
             </div>

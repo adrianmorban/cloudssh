@@ -44,7 +44,7 @@ export const Host = (props: HostProps) => {
                     <h2 className="text-white font-medium text-sm">{props.name}</h2>
                 </div>
                 <div className="w-full flex flex-col">
-                    <span className="text-white text-sm opacity-70">{props.user}@{props.address}</span>
+                    <span className="text-light text-sm opacity-70">{props.user}@{props.address}</span>
                 </div>
             </div>
             <div className="flex items-center gap-4">

@@ -1,18 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 @import "tailwindcss"; 
 
 @theme {
     --color-primary: #3B82F6;           /* Blue 500 - Acciones principales */
     --color-primary-dark: #2563EB;      /* Blue 600 - Hover states */
     --color-primary-light: #60A5FA;     /* Blue 400 - Elementos secundarios */
+    --color-accent: #0e4b6c;            /* Violet 500 - Elementos destacados */
+    --color-light: #8bafc6;
 
     --color-success: #10B981;           /* Green 500 - Estados exitosos */
     --color-warning: #F59E0B;           /* Amber 500 - Advertencias */
     --color-danger: #EF4444;            /* Red 500 - Eliminaciones/errores */
 
-    --color-bg-primary: #0F172A;        /* Slate 900 - Fondo principal */
-    --color-bg-secondary: #1E293B;      /* Slate 800 - Cards/panels */
-    --color-bg-tertiary: #334155;       /* Slate 700 - Hover states */
+    --color-bg-primary: #07273b;        /* Slate 900 - Fondo principal */
+    --color-bg-secondary: #062132;      /* Slate 800 - Cards/panels */
+    --color-bg-tertiary: #051b29;       /* Slate 700 - Hover states */
+
     --color-text-primary: #F8FAFC;      /* Slate 50 - Texto principal */
     --color-text-secondary: #CBD5E1;    /* Slate 300 - Texto secundario */
     --color-text-muted: #64748B;        /* Slate 500 - Texto deshabilitado */
@@ -20,5 +23,5 @@
 }
 
 html, body, * {
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Geist", sans-serif;
 }
