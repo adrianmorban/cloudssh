@@ -19,7 +19,7 @@ export const Navbar: React.FC = () => {
                 <div style={{ WebkitAppRegion: "drag" } as React.CSSProperties} className="flex gap-2 h-full items-center overflow-x-auto py-2 px-8">
                     {tabs.map((tab: ServerTab) => (
                         <Tab key={tab.id} onClick={() => setActiveTab(tab.id)} active={tab.id === activeTabId} label={tab.label} onClose={() => closeTab(tab.id)} />
-                    ))}
+                    ))} 
                     <button onClick={createNewTabHandler} className="text-light hover:bg-bg-tertiary h-full aspect-square flex justify-center items-center cursor-pointer rounded-md transition-all duration-300">
                         <HugeiconsIcon icon={PlusSignIcon} size={16} color="white" strokeWidth={1} />
                     </button>
