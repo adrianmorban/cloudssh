@@ -1,4 +1,5 @@
 import { Store } from "@tanstack/react-store";
+import { router } from "../router/router";
 
 export type ServerTab = {
     id: string;
@@ -57,6 +58,11 @@ export const serverTabsActions = {
             tabs: [...state.tabs, newTab],
             activeTabId: newTab.id,
         }));
+
+        router.navigate({
+            to: `/tab/${newTab.id}`,
+            params: { tabId: newTab.id }
+        })
     },
 
     openServerInTab: (tabId: string, server: { id: string; name: string }) => {
@@ -73,6 +79,11 @@ export const serverTabsActions = {
                 : tab
             ),
         }));
+
+        router.navigate({
+            to: `/tab/${tabId}`,
+            params: { tabId }
+        });
     },
 
     closeTab: (id: string) => {
@@ -87,6 +98,11 @@ export const serverTabsActions = {
                     label: "New Tab",
                 };
                 
+                router.navigate({
+                    to: `/tab/${newTab.id}`,
+                    params: { tabId: newTab.id }
+                });
+
                 return {
                     tabs: [newTab],
                     activeTabId: newTab.id
@@ -94,7 +110,14 @@ export const serverTabsActions = {
             }
       
             const newActiveId = state.activeTabId === id ? filtered[filtered.length - 1].id : state.activeTabId;
-      
+
+            if(newActiveId && state.activeTabId === id) {
+                router.navigate({
+                    to: `/tab/${newActiveId}`,
+                    params: { tabId: newActiveId }
+                });
+            }
+
             return {
                 tabs: filtered,
                 activeTabId: newActiveId
@@ -107,6 +130,11 @@ export const serverTabsActions = {
             ...state,
             activeTabId: id
         }));
+
+        router.navigate({
+            to: `/tab/${id}`,
+            params: { tabId: id }
+        });
     },
 
     setActiveView: (tabId: string, view: "ssh" | "sftp" | "logs" | "config") => {
@@ -115,7 +143,7 @@ export const serverTabsActions = {
             tabs: state.tabs.map((tab) =>
                 tab.id === tabId && tab.type === "server" ? { ...tab, activeView: view } : tab
             ),
-        }));
+        })); 
     },
 
     resetTabToNew: (tabId: string) => {

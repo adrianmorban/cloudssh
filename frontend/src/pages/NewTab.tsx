@@ -2,7 +2,11 @@
  import Searcher from "../components/searcher";
 import { Host } from "../components/host";
 
-export const NewTab: React.FC = () => {
+interface NewTabProps {
+  tabId: string;
+}
+
+export const NewTab: React.FC<NewTabProps> = ({ tabId }) => {
 
     const fakeHosts = [
         {
@@ -39,6 +43,7 @@ export const NewTab: React.FC = () => {
                 <Searcher />
             </div>
             <div className="w-full grid grid-cols-1 gap-4 mt-5">
+                <h1>New Tab: {tabId}</h1>
                 {fakeHosts.map((host, index) => (
                     <Host
                         key={index}

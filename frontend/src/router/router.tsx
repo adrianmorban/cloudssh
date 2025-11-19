@@ -1,20 +1,62 @@
-import { createRootRoute, createRoute, Router } from "@tanstack/react-router";
+import { createRootRoute, createRoute, Router, redirect } from "@tanstack/react-router";
 import { RootLayout } from "../layout/RootLayout";
 import { NewTab } from "../pages/NewTab";
+import { serverTabsStore } from "../stores/severTabs.store";
 
 const rootRoute = createRootRoute({
   component: RootLayout,
 });
 
+const TabView = () => {
+  const { tabId } = tabRoute.useParams();
+  const state = serverTabsStore.state;
+  const tab = state.tabs.find(t => t.id === tabId);
+
+  if (!tab) {
+    return <div>Tab not found</div>;
+  }
+
+  if (tab.type === "newtab") {
+    return <NewTab key={tabId} tabId={tabId} />;
+  }
+
+  return <div>Server Tab: {tab.serverName}</div>;
+
+}
+
 const indexRoute = createRoute({
-    getParentRoute: () => rootRoute,
-    path: "/",
-    component: NewTab,
+  getParentRoute: () => rootRoute,
+  path: "/",
+  beforeLoad: () => {
+    const state = serverTabsStore.state;
+    const activeTab = state.activeTabId || state.tabs[0]?.id;
+    
+    if (activeTab) {
+      throw redirect({ to: `/tab/$tabId`, params: { tabId: activeTab } });
+    } 
+  },
+});
+
+const tabRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/tab/$tabId",
+  component: TabView,
+
+  beforeLoad: ({ params }) => {
+    const state = serverTabsStore.state;
+    const tab = state.tabs.find(tab => tab.id === params.tabId);
+    if (!tab) {
+      throw redirect({ to: "/" });
+    }
+
+    return { tab }
+  },
 });
 
 export const router = new Router({
   routeTree: rootRoute.addChildren([
     indexRoute,
+    tabRoute,
   ]),
 })
 
