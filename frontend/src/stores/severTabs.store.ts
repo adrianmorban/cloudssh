@@ -84,22 +84,17 @@ export const serverTabsActions = {
         serverTabsStore.setState((state) => {
             const filtered = state.tabs.filter((t) => t.id !== id);
       
-            // Si no quedan tabs, crear una NewTab
+            // Si no quedan tabs navega al home
             if (filtered.length === 0) {
-                const newTab: ServerTab = {
-                    id: `tab-${Date.now()}`,
-                    type: "newtab",
-                    label: "New Tab",
-                };
                 
                 router.navigate({
-                    to: `/tab/${newTab.id}`,
-                    params: { tabId: newTab.id }
+                    to: `/`,
+                    params: { }
                 });
 
                 return {
-                    tabs: [newTab],
-                    activeTabId: newTab.id
+                    tabs: [],
+                    activeTabId: null
                 };
             }
       
