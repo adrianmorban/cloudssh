@@ -22,7 +22,7 @@ export const Sidebar: React.FC = () => {
         {
             name: "Home",
             icon: Home01Icon,
-            route: "/tab/"
+            route: "/"
         },
         {
             name: "Hosts",

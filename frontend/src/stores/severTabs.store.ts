@@ -25,15 +25,9 @@ const loadInitialState = (): ServerTabsState => {
         console.error('Error loading tabs from localStorage', error);
     }
 
-    const initialTab: ServerTab  = {
-        id: `tab-${Date.now()}`,
-        type: "newtab",
-        label: "New Tab",
-    };
-
     return {
-        tabs: [initialTab],
-        activeTabId: initialTab.id,
+        tabs: [],
+        activeTabId: null,
     };
 
 };

@@ -17,7 +17,7 @@ const TabView = () => {
   }
 
   if (tab.type === "newtab") {
-    return <NewTab key={tabId} tabId={tabId} />;
+    return <NewTab key={tabId} />;
   }
 
   return <div>Server Tab: {tab.serverName}</div>;
@@ -27,14 +27,6 @@ const TabView = () => {
 const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/",
-  beforeLoad: () => {
-    const state = serverTabsStore.state;
-    const activeTab = state.activeTabId || state.tabs[0]?.id;
-    
-    if (activeTab) {
-      throw redirect({ to: `/tab/$tabId`, params: { tabId: activeTab } });
-    } 
-  },
 });
 
 const tabRoute = createRoute({
