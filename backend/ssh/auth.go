@@ -2,6 +2,7 @@ package ssh
 
 import (
 	"fmt"
+	"net"
 	"os"
 
 	"golang.org/x/crypto/ssh"
@@ -60,7 +61,7 @@ func (c *Client) createKeyAuth() (ssh.AuthMethod, error) {
 
 func (c *Client) createAgentAuth() (ssh.AuthMethod, error) {
 	socket := os.Getenv("SSH_AUTH_SOCK")
-	conn, err := ssh.Dial("unix", socket, nil)
+	conn, err := net.Dial("unix", socket)
 	if err != nil {
 		return nil, fmt.Errorf("unable to connect to SSH agent: %v", err)
 	}
